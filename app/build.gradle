@@ -72,4 +72,6 @@ dependencies {
     implementation "org.koin:koin-android-viewmodel:$koin_version"
     testImplementation "org.koin:koin-test:$koin_version"
 
+    testImplementation "org.robolectric:robolectric:4.3"
+    testImplementation "io.mockk:mockk-android:1.9.2"
 }

@@ -90,7 +90,9 @@ class ContactFormFragment : Fragment() {
 
     private fun configureButtons() {
         binding.addPhone.setOnClickListener {
-            contactFormViewModel.addPhone(PhoneType.MOBILE, "")
+            if (!contactFormViewModel.addPhone(PhoneType.MOBILE, "")){
+                showSnackBar(R.string.empty_phone_already_added)
+            }
         }
 
         binding.deleteContact.setOnClickListener {
