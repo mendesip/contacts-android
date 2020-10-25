@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="phone"
+            type="com.example.data.phone.Phone" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:addStatesFromChildren="true"
+            android:background="@drawable/bg_round_field"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Spinner
+                android:id="@+id/phone_type"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:background="@android:color/transparent"
+                android:hint="@string/hint_telephone"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                android:singleLine="true"
+                android:text="@={phone.number}" />
+
+            <ImageButton
+                android:id="@+id/remove_btn"
+                style="?borderlessButtonStyle"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_remove"
+                android:tint="@android:color/holo_red_dark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

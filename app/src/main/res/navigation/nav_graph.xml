@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ContactListFragment">
+
+    <fragment
+        android:id="@+id/ContactListFragment"
+        android:name="com.example.ui.contact.list.ContactListFragment"
+        android:label="Contact List"
+        tools:layout="@layout/fragment_contact_list">
+
+        <action
+            android:id="@+id/action_ContactList_to_ContactForm"
+            app:destination="@id/ContactFormFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ContactFormFragment"
+        android:name="com.example.ui.contact.form.ContactFormFragment"
+        android:label="Contact Form"
+        tools:layout="@layout/fragment_contact_form" >
+        <argument
+            android:name="contactId"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
+</navigation>

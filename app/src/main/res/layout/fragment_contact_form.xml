@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="contactId"
+            type="Long" />
+
+        <variable
+            name="viewModel"
+            type="com.example.ui.contact.form.ContactFormViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:menu="@menu/menu_contact_form"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="@{contactId == 0L ? @string/new_contact : @string/edit_contact}"
+            tools:title="@string/new_contact" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/contact_image"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/bg_circle"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_person"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@android:color/white"
+                    tools:ignore="ContentDescription" />
+
+                <EditText
+                    android:id="@+id/name_field"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/bg_round_field"
+                    android:hint="@string/hint_name"
+                    android:importantForAutofill="no"
+                    android:inputType="textCapWords"
+                    android:paddingHorizontal="16dp"
+                    android:text="@={viewModel.name}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/contact_image" />
+
+                <EditText
+                    android:id="@+id/email_field"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_round_field"
+                    android:hint="@string/hint_email"
+                    android:importantForAutofill="no"
+                    android:inputType="textEmailAddress"
+                    android:paddingHorizontal="16dp"
+                    android:text="@={viewModel.email}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/name_field" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/phone_list"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/email_field"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/item_phone" />
+
+                <Button
+                    android:id="@+id/add_phone"
+                    style="?borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_round_button"
+                    android:paddingHorizontal="48dp"
+                    android:text="@string/add_phone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/phone_list" />
+
+                <Button
+                    android:id="@+id/delete_contact"
+                    style="?borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_round_button"
+                    android:paddingHorizontal="48dp"
+                    android:text="@string/delete_contact"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:visibility="@{contactId != 0L ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/add_phone" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

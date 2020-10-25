@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Contatos</string>
+    <string name="phone_type_mobile">Celular</string>
+    <string name="phone_type_commercial">Comercial</string>
+    <string name="phone_type_residential">Residencial</string>
+    <string name="search_action">Pesquisar</string>
+    <string name="save_action">Salvar</string>
+    <string name="hint_telephone">Telefone</string>
+    <string name="hint_name">Nome</string>
+    <string name="hint_email">Email</string>
+    <string name="add_phone">Adicionar telefone</string>
+    <string name="delete_contact">Excluir contato</string>
+    <string name="new_contact">Novo contato</string>
+    <string name="edit_contact">Editar contato</string>
+    <string name="empty_contact_message">O contato está vazio</string>
+    <string name="existing_phone_message">Esse número já está cadastrado</string>
+    <string name="contact_saved">Contato salvo</string>
+    <string name="contact_deleted">Contato apagado</string>
+    <string name="empty_contact_list">Nenhum contato encontrado</string>
+</resources>

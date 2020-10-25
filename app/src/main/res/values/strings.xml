@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Contacts</string>
+    <string name="phone_type_mobile">Mobile</string>
+    <string name="phone_type_commercial">Commercial</string>
+    <string name="phone_type_residential">Residential</string>
+    <string name="search_action">Search</string>
+    <string name="save_action">Save</string>
+    <string name="hint_telephone">Telephone</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_email">Email</string>
+    <string name="add_phone">Add phone</string>
+    <string name="delete_contact">Delete contact</string>
+    <string name="new_contact">New contact</string>
+    <string name="edit_contact">Edit contact</string>
+    <string name="empty_contact_message">Contact name cannot be empty</string>
+    <string name="existing_phone_message">Some phone number is already registered</string>
+    <string name="contact_saved">Saved</string>
+    <string name="contact_deleted">Deleted</string>
+    <string name="empty_contact_list">No contacts found</string>
+</resources>
