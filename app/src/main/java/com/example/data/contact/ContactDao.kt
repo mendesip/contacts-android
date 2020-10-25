@@ -25,17 +25,15 @@ abstract class ContactDao(
     @Update(onConflict = OnConflictStrategy.REPLACE)
     abstract suspend fun update(contact: Contact)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
     @Transaction
-    suspend fun save(contact: Contact, phones: List<Phone>) {
+    open suspend fun save(contact: Contact, phones: List<Phone>) {
         val contactId = save(contact)
         phones.forEach { it.contactId = contactId }
         database.phoneDao().save(*phones.toTypedArray())
     }
 
-    @Update(onConflict = OnConflictStrategy.REPLACE)
     @Transaction
-    suspend fun update(contact: Contact, phones: List<Phone>) {
+    open suspend fun update(contact: Contact, phones: List<Phone>) {
         update(contact)
         database.phoneDao().clearByContact(contact.id)
         database.phoneDao().save(*phones.toTypedArray())
