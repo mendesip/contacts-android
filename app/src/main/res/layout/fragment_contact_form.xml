@@ -123,11 +123,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:layout_marginBottom="40dp"
                     android:background="@drawable/bg_round_button"
                     android:paddingHorizontal="48dp"
                     android:text="@string/delete_contact"
                     android:textColor="@android:color/holo_red_dark"
                     android:visibility="@{contactId != 0L ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/add_phone" />
